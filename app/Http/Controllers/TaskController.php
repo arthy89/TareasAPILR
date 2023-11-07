@@ -14,6 +14,5 @@ class TaskController extends Controller
     public function create()
     {
         return 'crear tarea';
-        // xd
     }
 }
