@@ -2,17 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Task;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
     public function index()
     {
-        return 'lista de tareas';
+        return Task::all();
     }
 
-    public function create()
+    public function create(Request $request)
     {
-        return 'crear tarea'; //xd
+        $task = Task::create([
+            'title' => $request->title,
+            'description' => $request->description
+        ]);
+
+        return $task;
     }
 }
