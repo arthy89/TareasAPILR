@@ -21,4 +21,9 @@ class TaskController extends Controller
 
         return $task;
     }
+
+    public function delete($id)
+    {
+        Task::destroy($id);
+    }
 }
