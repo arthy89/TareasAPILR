@@ -22,8 +22,22 @@ class TaskController extends Controller
         return $task;
     }
 
-    public function delete($id)
+    public function get(Task $task)
     {
-        Task::destroy($id);
+        // $task = Task::find($id);
+        return $task;
+    }
+
+    public function update(Request $request, Task $task)
+    {
+        $task->fill($request->all());
+        $task->save();
+
+        return $task;
+    }
+
+    public function delete($task)
+    {
+        Task::destroy($task);
     }
 }
